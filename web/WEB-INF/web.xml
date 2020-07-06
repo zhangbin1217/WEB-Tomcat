@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    
+    <!--配置servlet-->
+    <servlet>
+        <servlet-name>demon1</servlet-name>
+        <servlet-class>cn.itcast.web.servlet.servletDemo1</servlet-class>
+    </servlet>
+
+
+    <!--
+    1.tomcat将全类名对应的自解码文件加载进内存
+    2.创建对象 cls.newInstance()
+    3.调用方法——service
+    -->
+    <servlet-mapping>
+        <servlet-name>demon1</servlet-name>
+        <url-pattern>/demon1</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>demon2</servlet-name>
+        <servlet-class>cn.itcast.web.servlet.servletDemon2</servlet-class>
+        <!--
+        在<servlet>标签下
+        指定servlet的创建时机:
+        1.第一次被访问时创建
+             <load-on-startup>的值为负数
+        2.在服务器启动时创建
+            <load-on-startup>的值为0或正数
+        -->
+        <!--<load-on-startup></load-on-startup>-->
+    </servlet>
+
+
+
+    <servlet-mapping>
+        <servlet-name>demon2</servlet-name>
+        <url-pattern>/demon2</url-pattern>
+    </servlet-mapping>
+</web-app>
